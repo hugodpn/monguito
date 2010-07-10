@@ -1,15 +1,5 @@
-/*
- * QueryUI.java
- *
- * Created on Jul 9, 2010, 9:18:47 PM
- */
-
 package com.vvcode.monguito.ui;
 
-/**
- *
- * @author hugo
- */
 public class QueryUI extends javax.swing.JFrame {
 
     /** Creates new form QueryUI */
@@ -67,19 +57,18 @@ public class QueryUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRunActionPerformed
 
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new QueryUI().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRun;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     // End of variables declaration//GEN-END:variables
-
 }
