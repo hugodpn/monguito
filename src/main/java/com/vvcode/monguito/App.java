@@ -1,13 +1,11 @@
 package com.vvcode.monguito;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+import com.vvcode.monguito.ui.QueryUI;
+
+public class App {
+
+    public static void main(String[] args) {
+        QueryUI queryUI = new QueryUI();
+        queryUI.setVisible(true);
     }
 }
