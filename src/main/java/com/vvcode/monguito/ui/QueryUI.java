@@ -1,10 +1,15 @@
 package com.vvcode.monguito.ui;
 
+import com.vvcode.monguito.controllers.QueryController;
+
 public class QueryUI extends javax.swing.JFrame {
+
+    private QueryController queryController;
 
     /** Creates new form QueryUI */
     public QueryUI() {
         initComponents();
+        queryController = new QueryController();
     }
 
     /** This method is called from within the constructor to
@@ -52,7 +57,7 @@ public class QueryUI extends javax.swing.JFrame {
 
     private void btnRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunActionPerformed
 
-        System.out.println("Running...");
+        queryController.excecuteQuery();
 
     }//GEN-LAST:event_btnRunActionPerformed
 
