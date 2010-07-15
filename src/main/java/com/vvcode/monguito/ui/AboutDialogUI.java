@@ -1,20 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * AboutDialogUI.java
- *
- * Created on Jul 14, 2010, 5:13:44 PM
- */
-
 package com.vvcode.monguito.ui;
 
-/**
- *
- * @author hugo
- */
 public class AboutDialogUI extends javax.swing.JDialog {
 
     /** Creates new form AboutDialogUI */

@@ -1,22 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * ConfigurationsUI.java
- *
- * Created on Jul 14, 2010, 5:41:14 PM
- */
-
 package com.vvcode.monguito.ui;
 
 import com.vvcode.monguito.entities.Connection;
 
-/**
- *
- * @author hugo
- */
 public class ConfigurationsUI extends javax.swing.JDialog {
 
     /** Creates new form ConfigurationsUI */

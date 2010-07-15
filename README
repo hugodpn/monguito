@@ -1,0 +1,13 @@
+GNU MongoDb GUI Tool.
+
+Alpha version 0.0.1
+-------------
+
+- Select db.
+- Select collection.
+- db.collection.find().skip(xx).limit(yy) from a simple button.
+
+
+Author: Hugo Pacini
+hpacini@dhpn.com.ar
+
