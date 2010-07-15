@@ -41,7 +41,7 @@ public class AboutDialogUI extends javax.swing.JDialog {
         jTextArea1.setColumns(20);
         jTextArea1.setEditable(false);
         jTextArea1.setRows(5);
-        jTextArea1.setText("\nGNU MongoDB Tool.\nCopyright @ 2010\n\nCreated by Hugo Pacini\nhpacini@dhpn.com.ar\n\nColaborators:\n\nVersion 0.0.1 (Alfa)");
+        jTextArea1.setText("\nGNU MongoDB Tool.\nCopyright @ 2010\n\nCreated by Hugo Pacini\nhpacini@dhpn.com.ar\n\nColaborators:\n\nVersion 0.0.2 (Alfa)");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -51,9 +51,6 @@ public class AboutDialogUI extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(btnClose))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
@@ -61,7 +58,10 @@ public class AboutDialogUI extends javax.swing.JDialog {
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(btnClose)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -79,7 +79,7 @@ public class AboutDialogUI extends javax.swing.JDialog {
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-400)/2, (screenSize.height-386)/2, 400, 386);
+        setBounds((screenSize.width-312)/2, (screenSize.height-386)/2, 312, 386);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed

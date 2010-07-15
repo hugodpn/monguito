@@ -1,8 +1,10 @@
 package com.vvcode.monguito.controllers;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 import com.vvcode.monguito.entities.Connection;
 import java.util.List;
@@ -13,6 +15,7 @@ class MongoController {
     private Mongo mongo;
     private DB db;
     private DBCollection dBCollection;
+    private DBCursor cursor;
 
     public MongoController() {
         init();
@@ -39,6 +42,23 @@ class MongoController {
 
     public DBCursor find(String collection) {
         dBCollection = db.getCollection(collection);
-        return dBCollection.find();
+        cursor = dBCollection.find();
+        return cursor;
     }
+
+    public void remove(String collection) {
+        dBCollection = db.getCollection(collection);
+        dBCollection.drop();
+    }
+
+    public void create(String collection) {
+        dBCollection = db.createCollection(collection, new BasicDBObject());
+        find(collection);
+    }
+
+    public void save(DBObject object, String collection) {
+        dBCollection = db.getCollection(collection);
+        dBCollection.insert(object);
+    }
+
 }

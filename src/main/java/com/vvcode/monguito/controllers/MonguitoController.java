@@ -2,6 +2,7 @@ package com.vvcode.monguito.controllers;
 
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import com.mongodb.util.JSON;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -68,5 +69,39 @@ public class MonguitoController extends ApplicationController {
 
     public void setResponse(List<String> response) {
         this.response = response;
+    }
+
+    public void truncate(String collection) {
+        mongoController.remove(collection);
+        mongoController.create(collection);
+    }
+
+    public void remove(String collection) {
+        mongoController.remove(collection);
+    }
+
+    public boolean validateCollectionName(String collection) {
+        if (collection.length() > 0 && (collection.split("\\.")).length == 1
+                && !getCollections().contains(collection)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void createCollection(String collection) {
+        mongoController.create(collection);
+    }
+
+    public void addToCollection(String jquery, String collection) {
+        DBObject object = (DBObject) JSON.parse(jquery);
+        mongoController.save(object, collection);
+    }
+
+    public String getObjectId(int selectedIndex) {
+
+        DBObject obj = (DBObject) JSON.parse(response.get(selectedIndex));
+        return obj.get("_id").toString();
+        
     }
 }
