@@ -1,6 +1,6 @@
 GNU MongoDb GUI Tool.
 
-Alpha version 0.0.3
+Alpha version 0.0.4
 -------------------
 
 - Show DBs.
@@ -14,7 +14,8 @@ Alpha version 0.0.3
 - Insert field in collection
 - Remove selected field from collection
 - Create DB
-- Remove DB
+- Destroy DB
+- Edit selected field
 
 Author: Hugo Pacini
 hpacini@dhpn.com.ar
