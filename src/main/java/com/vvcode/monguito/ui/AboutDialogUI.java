@@ -41,7 +41,7 @@ public class AboutDialogUI extends javax.swing.JDialog {
         jTextArea1.setColumns(20);
         jTextArea1.setEditable(false);
         jTextArea1.setRows(5);
-        jTextArea1.setText("\nGNU MongoDB Tool.\nCopyright @ 2010\n\nCreated by Hugo Pacini\nhpacini@dhpn.com.ar\n\nColaborators:\n\nVersion 0.0.2 (Alfa)");
+        jTextArea1.setText("\nGNU MongoDB Tool.\nCopyright @ 2010\n\nCreated by Hugo Pacini\nhpacini@dhpn.com.ar\n\nColaborators:\n\nVersion 0.0.3 (Alfa)");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

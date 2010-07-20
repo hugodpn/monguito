@@ -37,6 +37,7 @@ public class AddUI extends javax.swing.JDialog {
 
         textInsert.setColumns(20);
         textInsert.setRows(5);
+        textInsert.setText("{\n   \"name\" : \"Some Name\",\n   \"age\" : 33,\n   \"mail\" : \"mail@test.com\"\n}");
         jScrollPane1.setViewportView(textInsert);
 
         btnAdd.setText("Add");
@@ -86,6 +87,7 @@ public class AddUI extends javax.swing.JDialog {
         try {
             String jquery = textInsert.getText();
             monguitoController.addToCollection(jquery, collection);
+            this.setVisible(false);
 
         } catch (Exception exception) {
             JOptionPane.showMessageDialog(this, "Invalid JSON",

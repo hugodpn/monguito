@@ -1,15 +1,20 @@
 GNU MongoDb GUI Tool.
 
-Alpha version 0.0.2
+Alpha version 0.0.3
 -------------------
 
-- Select db.
-- Select collection.
-- db.<collection>.find().skip(xx).limit(yy) from a simple button.
+- Show DBs.
+- Show collection.
+- Find: 
+    > db.<collection>.find().skip(xx).limit(yy) from a simple button.
+    > Simple paginator
+- Create collection
 - Remove collection
 - Truncate (remove and create) collection
-- Create collection
-- Add new record in selected collection
+- Insert field in collection
+- Remove selected field from collection
+- Create DB
+- Remove DB
 
 Author: Hugo Pacini
 hpacini@dhpn.com.ar

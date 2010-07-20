@@ -104,4 +104,21 @@ public class MonguitoController extends ApplicationController {
         return obj.get("_id").toString();
         
     }
+
+    
+    public void removeCollectionField(int selectedIndex, String collection) {
+        DBObject obj = (DBObject) JSON.parse(response.get(selectedIndex));
+        mongoController.remove(obj, collection);
+        
+    }
+
+    public void createDataBase(String db) {
+
+        mongoController.createDataBase(db);
+        
+    }
+
+    public void removeDB(String dbSelected) {
+        mongoController.removeDB(dbSelected);
+    }
 }

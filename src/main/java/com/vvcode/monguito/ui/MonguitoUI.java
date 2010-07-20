@@ -13,9 +13,10 @@ public class MonguitoUI extends javax.swing.JFrame {
     public MonguitoUI() {
         initComponents();
         initMongoDbController();
+        this.setExtendedState(this.getExtendedState() | this.MAXIMIZED_BOTH);
+
 
         btnGenerateData.setVisible(false);
-        btnNewDataBase.setVisible(false);
 
         lblObjectID.setText("");
     }
@@ -42,6 +43,8 @@ public class MonguitoUI extends javax.swing.JFrame {
         btnFind = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         btnGenerateData = new javax.swing.JButton();
+        btnRemoveInsert = new javax.swing.JButton();
+        btnRemoveDataBase = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         lstResponse = new javax.swing.JList();
@@ -93,7 +96,7 @@ public class MonguitoUI extends javax.swing.JFrame {
         lblDbSelected.setForeground(new java.awt.Color(204, 0, 0));
         lblDbSelected.setText("DBSelected");
 
-        lstDataBases.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        lstDataBases.setFont(new java.awt.Font("Dialog", 1, 10));
         lstDataBases.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -108,7 +111,11 @@ public class MonguitoUI extends javax.swing.JFrame {
 
         btnNewDataBase.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         btnNewDataBase.setText("N");
-        btnNewDataBase.setEnabled(false);
+        btnNewDataBase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewDataBaseActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Coll.:");
 
@@ -116,7 +123,7 @@ public class MonguitoUI extends javax.swing.JFrame {
         lblCollectionSelected.setForeground(new java.awt.Color(204, 0, 0));
         lblCollectionSelected.setText("CollSelected");
 
-        lstCollections.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        lstCollections.setFont(new java.awt.Font("Dialog", 1, 10));
         lstCollections.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -139,7 +146,7 @@ public class MonguitoUI extends javax.swing.JFrame {
             }
         });
 
-        btnTruncate.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnTruncate.setFont(new java.awt.Font("Dialog", 1, 10));
         btnTruncate.setText("T");
         btnTruncate.setToolTipText("Truncate Collection (Remove and Create)");
         btnTruncate.setEnabled(false);
@@ -159,7 +166,7 @@ public class MonguitoUI extends javax.swing.JFrame {
             }
         });
 
-        btnFind.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnFind.setFont(new java.awt.Font("Dialog", 1, 10));
         btnFind.setText("Find");
         btnFind.setEnabled(false);
         btnFind.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +175,7 @@ public class MonguitoUI extends javax.swing.JFrame {
             }
         });
 
-        btnAdd.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnAdd.setFont(new java.awt.Font("Dialog", 1, 10));
         btnAdd.setText("Add");
         btnAdd.setEnabled(false);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -177,12 +184,30 @@ public class MonguitoUI extends javax.swing.JFrame {
             }
         });
 
-        btnGenerateData.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnGenerateData.setFont(new java.awt.Font("Dialog", 1, 10));
         btnGenerateData.setText("Tmp data");
         btnGenerateData.setEnabled(false);
         btnGenerateData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateDataActionPerformed(evt);
+            }
+        });
+
+        btnRemoveInsert.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnRemoveInsert.setText("Remove");
+        btnRemoveInsert.setEnabled(false);
+        btnRemoveInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveInsertActionPerformed(evt);
+            }
+        });
+
+        btnRemoveDataBase.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnRemoveDataBase.setText("R");
+        btnRemoveDataBase.setEnabled(false);
+        btnRemoveDataBase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveDataBaseActionPerformed(evt);
             }
         });
 
@@ -199,7 +224,10 @@ public class MonguitoUI extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(lblDbSelected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnNewDataBase))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnNewDataBase)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoveDataBase)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -212,17 +240,19 @@ public class MonguitoUI extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnGenerateData, 0, 0, Short.MAX_VALUE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnFind, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnRemoveInsert, 0, 0, Short.MAX_VALUE)
+                                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnFind, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                                .addGap(3, 3, 3))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(btnNew)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnTruncate)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRemove)))
+                                .addComponent(btnRemove)
+                                .addGap(23, 23, 23)
+                                .addComponent(btnGenerateData, 0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -236,22 +266,22 @@ public class MonguitoUI extends javax.swing.JFrame {
                     .addComponent(lblCollectionSelected))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnFind)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGenerateData))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnNewDataBase)
-                            .addComponent(btnNew)
-                            .addComponent(btnTruncate)
-                            .addComponent(btnRemove))))
+                        .addComponent(btnRemoveInsert)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNewDataBase)
+                    .addComponent(btnNew)
+                    .addComponent(btnTruncate)
+                    .addComponent(btnRemove)
+                    .addComponent(btnGenerateData)
+                    .addComponent(btnRemoveDataBase))
                 .addContainerGap())
         );
 
@@ -295,7 +325,7 @@ public class MonguitoUI extends javax.swing.JFrame {
 
         jLabel7.setText("OID:");
 
-        lblObjectID.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        lblObjectID.setFont(new java.awt.Font("Dialog", 1, 10));
         lblObjectID.setForeground(new java.awt.Color(0, 51, 153));
         lblObjectID.setText("ObjectID");
 
@@ -408,7 +438,7 @@ public class MonguitoUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(450, Short.MAX_VALUE))
+                .addContainerGap(447, Short.MAX_VALUE))
             .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -427,8 +457,12 @@ public class MonguitoUI extends javax.swing.JFrame {
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        getAccessibleContext().setAccessibleName("MongoDB GUI Tool (Alfa Version)");
+
+        pack();
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-913)/2, (screenSize.height-733)/2, 913, 733);
+        java.awt.Dimension dialogSize = getSize();
+        setLocation((screenSize.width-dialogSize.width)/2,(screenSize.height-dialogSize.height)/2);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbExitActionPerformed
@@ -451,6 +485,8 @@ public class MonguitoUI extends javax.swing.JFrame {
             lblObjectID.setText("");
             String[] tmp = new String[0];
             lstResponse.setListData(tmp);
+            btnRemoveDataBase.setEnabled(true);
+            btnRemoveInsert.setEnabled(true);
         }
 
     }//GEN-LAST:event_lstDataBasesValueChanged
@@ -518,6 +554,7 @@ public class MonguitoUI extends javax.swing.JFrame {
     private void toolRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toolRefreshActionPerformed
 
         initMongoDbController();
+        btnRemoveDataBase.setEnabled(false);
 //        toolRefresh.setEnabled(false);
 
     }//GEN-LAST:event_toolRefreshActionPerformed
@@ -577,15 +614,51 @@ public class MonguitoUI extends javax.swing.JFrame {
 
     private void lstResponseValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstResponseValueChanged
         try {
-            if (evt.getValueIsAdjusting()) {
-                String objID = monguitoController.getObjectId(lstResponse.getSelectedIndex());
-                lblObjectID.setText(objID);
-            }
+            String objID = monguitoController.getObjectId(lstResponse.getSelectedIndex());
+            lblObjectID.setText(objID);
+            btnRemoveInsert.setEnabled(true);
         } catch (Exception e) {
             lblObjectID.setText("no-id");
         }
 
     }//GEN-LAST:event_lstResponseValueChanged
+
+    private void btnRemoveInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveInsertActionPerformed
+
+        int selectedIndex = lstResponse.getSelectedIndex();
+        String collection = monguitoController.getCollections().get(lstCollections.getSelectedIndex());
+        monguitoController.removeCollectionField(selectedIndex, collection);
+
+    }//GEN-LAST:event_btnRemoveInsertActionPerformed
+
+    private void btnNewDataBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewDataBaseActionPerformed
+
+        String db = JOptionPane.showInputDialog(this, "Data Base Name:",
+                "New Data Base", JOptionPane.PLAIN_MESSAGE);
+
+        if (db != null && monguitoController.validateCollectionName(db)) {
+            monguitoController.createDataBase(db);
+            initMongoDbController();
+        } else if (db != null) {
+            JOptionPane.showMessageDialog(this, "Name data base is invalid",
+                    "Invalid name", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnNewDataBaseActionPerformed
+
+    private void btnRemoveDataBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveDataBaseActionPerformed
+
+        int answer = JOptionPane.showConfirmDialog(this, "Are you sure?",
+                "REMOVE data base", JOptionPane.YES_NO_OPTION);
+
+        if (answer == 0) {
+            String dbSelected = monguitoController.getDataBases().get(lstDataBases.getSelectedIndex());
+            monguitoController.removeDB(dbSelected);
+            initMongoDbController();
+            btnRemoveDataBase.setEnabled(false);
+        }
+
+    }//GEN-LAST:event_btnRemoveDataBaseActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -602,6 +675,8 @@ public class MonguitoUI extends javax.swing.JFrame {
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnNewDataBase;
     private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnRemoveDataBase;
+    private javax.swing.JButton btnRemoveInsert;
     private javax.swing.JButton btnTruncate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
