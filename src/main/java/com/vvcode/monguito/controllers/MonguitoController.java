@@ -46,13 +46,13 @@ public class MonguitoController extends ApplicationController {
     }
 
     public void refreshCollections(String db) {
-        Set<String> coll = mongoController.getCollections(db);
+        Set<String> coll = getMongoController().getCollections(db);
         setCollections(new ArrayList<String>(coll));
     }
 
     public int find(String collection, int skip, int limit) {
-        int count = mongoController.find(collection).count();
-        DBCursor dBCursor = mongoController.find(collection).skip(skip * limit).limit(limit);
+        int count = getMongoController().find(collection).count();
+        DBCursor dBCursor = getMongoController().find(collection).skip(skip * limit).limit(limit);
 
         setResponse(new ArrayList<String>());
 
@@ -72,12 +72,12 @@ public class MonguitoController extends ApplicationController {
     }
 
     public void truncate(String collection) {
-        mongoController.remove(collection);
-        mongoController.create(collection);
+        getMongoController().remove(collection);
+        getMongoController().create(collection);
     }
 
     public void remove(String collection) {
-        mongoController.remove(collection);
+        getMongoController().remove(collection);
     }
 
     public boolean validateCollectionName(String collection) {
@@ -90,35 +90,50 @@ public class MonguitoController extends ApplicationController {
     }
 
     public void createCollection(String collection) {
-        mongoController.create(collection);
+        getMongoController().create(collection);
     }
 
     public void addToCollection(String jquery, String collection) {
         DBObject object = (DBObject) JSON.parse(jquery);
-        mongoController.save(object, collection);
+        getMongoController().save(object, collection);
     }
 
     public String getObjectId(int selectedIndex) {
 
         DBObject obj = (DBObject) JSON.parse(response.get(selectedIndex));
         return obj.get("_id").toString();
-        
+
     }
 
-    
     public void removeCollectionField(int selectedIndex, String collection) {
         DBObject obj = (DBObject) JSON.parse(response.get(selectedIndex));
-        mongoController.remove(obj, collection);
-        
+        getMongoController().remove(obj, collection);
+
     }
 
     public void createDataBase(String db) {
 
-        mongoController.createDataBase(db);
-        
+        getMongoController().createDataBase(db);
+
     }
 
     public void removeDB(String dbSelected) {
-        mongoController.removeDB(dbSelected);
+        getMongoController().removeDB(dbSelected);
+    }
+
+    public MongoController getMongoController() {
+        return mongoController;
+    }
+
+    public void setMongoController(MongoController mongoController) {
+        this.mongoController = mongoController;
+    }
+
+    public DBObject getObjectBySelectedIndex(int selectedIndex) {
+        return (DBObject) JSON.parse(response.get(selectedIndex));
+    }
+
+    public void update(DBObject obj) {
+        mongoController.update(obj);
     }
 }

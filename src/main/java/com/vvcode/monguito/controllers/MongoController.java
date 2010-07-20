@@ -61,7 +61,7 @@ class MongoController {
         dBCollection.insert(object);
     }
 
-    public void remove(DBObject object, String collection){
+    public void remove(DBObject object, String collection) {
         dBCollection = db.getCollection(collection);
         dBCollection.remove(object);
     }
@@ -70,11 +70,14 @@ class MongoController {
 
         db = mongo.getDB(dbName);
         db.getCollectionNames();
-        
+
     }
 
     void removeDB(String dbSelected) {
         mongo.dropDatabase(dbSelected);
     }
 
+    public void update(DBObject object) {
+        dBCollection.save(object);
+    }
 }
