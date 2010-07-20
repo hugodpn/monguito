@@ -71,7 +71,7 @@ public class MonguitoUI extends javax.swing.JFrame {
         tbAbout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MongoDB GUI Tool");
+        setTitle("MongoDB GUI Tool (Alfa Version)");
 
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar1.setFloatable(false);
@@ -96,7 +96,7 @@ public class MonguitoUI extends javax.swing.JFrame {
         lblDbSelected.setForeground(new java.awt.Color(204, 0, 0));
         lblDbSelected.setText("DBSelected");
 
-        lstDataBases.setFont(new java.awt.Font("Dialog", 1, 10));
+        lstDataBases.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lstDataBases.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -123,7 +123,7 @@ public class MonguitoUI extends javax.swing.JFrame {
         lblCollectionSelected.setForeground(new java.awt.Color(204, 0, 0));
         lblCollectionSelected.setText("CollSelected");
 
-        lstCollections.setFont(new java.awt.Font("Dialog", 1, 10));
+        lstCollections.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lstCollections.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -175,8 +175,9 @@ public class MonguitoUI extends javax.swing.JFrame {
             }
         });
 
-        btnAdd.setFont(new java.awt.Font("Dialog", 1, 10));
+        btnAdd.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         btnAdd.setText("Add");
+        btnAdd.setToolTipText("Add field in selected collection.");
         btnAdd.setEnabled(false);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +196,7 @@ public class MonguitoUI extends javax.swing.JFrame {
 
         btnRemoveInsert.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         btnRemoveInsert.setText("Remove");
+        btnRemoveInsert.setToolTipText("Remove field selected from collection.");
         btnRemoveInsert.setEnabled(false);
         btnRemoveInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,8 +459,6 @@ public class MonguitoUI extends javax.swing.JFrame {
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        getAccessibleContext().setAccessibleName("MongoDB GUI Tool (Alfa Version)");
-
         pack();
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         java.awt.Dimension dialogSize = getSize();
@@ -487,6 +487,7 @@ public class MonguitoUI extends javax.swing.JFrame {
             lstResponse.setListData(tmp);
             btnRemoveDataBase.setEnabled(true);
             btnRemoveInsert.setEnabled(true);
+            btnRemoveInsert.setEnabled(false);
         }
 
     }//GEN-LAST:event_lstDataBasesValueChanged
@@ -500,6 +501,7 @@ public class MonguitoUI extends javax.swing.JFrame {
             btnTruncate.setEnabled(true);
             btnRemove.setEnabled(true);
             btnAdd.setEnabled(true);
+            btnRemoveInsert.setEnabled(false);
         }
 
     }//GEN-LAST:event_lstCollectionsValueChanged
@@ -628,6 +630,7 @@ public class MonguitoUI extends javax.swing.JFrame {
         int selectedIndex = lstResponse.getSelectedIndex();
         String collection = monguitoController.getCollections().get(lstCollections.getSelectedIndex());
         monguitoController.removeCollectionField(selectedIndex, collection);
+        btnRemoveInsert.setEnabled(false);
 
     }//GEN-LAST:event_btnRemoveInsertActionPerformed
 

@@ -37,7 +37,7 @@ public class AddUI extends javax.swing.JDialog {
 
         textInsert.setColumns(20);
         textInsert.setRows(5);
-        textInsert.setText("{\n   \"name\" : \"Some Name\",\n   \"age\" : 33,\n   \"mail\" : \"mail@test.com\"\n}");
+        textInsert.setText("{\n   \"name\" : \"Hugo Pacini\",\n   \"age\" : 29,\n   \"mail\" : \"hpacini@dhpn.com.ar\",\n   \"country\" : \"Argentina\",\n   \"city\" : \"Mendoza\"\n}");
         jScrollPane1.setViewportView(textInsert);
 
         btnAdd.setText("Add");

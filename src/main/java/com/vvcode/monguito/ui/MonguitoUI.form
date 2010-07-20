@@ -54,11 +54,8 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="MongoDB GUI Tool"/>
+    <Property name="title" type="java.lang.String" value="MongoDB GUI Tool (Alfa Version)"/>
   </Properties>
-  <AccessibilityProperties>
-    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="MongoDB GUI Tool (Alfa Version)"/>
-  </AccessibilityProperties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
@@ -393,6 +390,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Add"/>
+            <Property name="toolTipText" type="java.lang.String" value="Add field in selected collection."/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -417,6 +415,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Remove"/>
+            <Property name="toolTipText" type="java.lang.String" value="Remove field selected from collection."/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
