@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><configuration><look_and_feel>Metal</look_and_feel><connection><name>localhost</name><host>localhost</host><port>27017</port></connection><connection><name>Tinet Server</name><host>10.222.96.56</host><port>27017</port></connection></configuration>

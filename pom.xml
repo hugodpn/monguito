@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.vvcode</groupId>
     <artifactId>monguito</artifactId>
     <packaging>jar</packaging>
     <name>monguito</name>
@@ -18,8 +17,13 @@
             <artifactId>mongo-java-driver</artifactId>
             <version>2.0</version>
         </dependency>
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>SNAPSHOT</version>
+        </dependency>
     </dependencies>
-    <version>0.0.4</version>
+    <version>0.1</version>
     <build>
         <plugins>
             <plugin>
@@ -31,8 +35,6 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -87,4 +89,12 @@
             </plugin>
         </plugins>
     </build>
+    <groupId>net.dhpn</groupId>
+    <repositories>
+        <repository>
+            <id>unknown-jars-temp-repo</id>
+            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+    </repositories>
 </project>
