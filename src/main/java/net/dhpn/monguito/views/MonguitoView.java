@@ -91,7 +91,7 @@ public class MonguitoView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 10));
         jLabel1.setText("DBs:");
 
-        lstCollections.setFont(new java.awt.Font("Dialog", 1, 10));
+        lstCollections.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lstCollections.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -107,7 +107,7 @@ public class MonguitoView extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 10));
         jLabel3.setText("Collections:");
 
-        btnDbNew.setFont(new java.awt.Font("Dialog", 1, 10));
+        btnDbNew.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         btnDbNew.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/add.png")); // NOI18N
         btnDbNew.setToolTipText("New Data Base");
         btnDbNew.setEnabled(false);
@@ -256,18 +256,24 @@ public class MonguitoView extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lstObjectsFound.setFont(new java.awt.Font("Dialog", 0, 12));
+        lstObjectsFound.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lstObjectsFound.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
         lstObjectsFound.setMinimumSize(null);
+        lstObjectsFound.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstObjectsFoundValueChanged(evt);
+            }
+        });
         jScrollPane3.setViewportView(lstObjectsFound);
 
         btnObjectNew.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         btnObjectNew.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/add.png")); // NOI18N
         btnObjectNew.setToolTipText("New Object");
+        btnObjectNew.setEnabled(false);
         btnObjectNew.setMaximumSize(new java.awt.Dimension(54, 34));
         btnObjectNew.setMinimumSize(new java.awt.Dimension(54, 34));
         btnObjectNew.setPreferredSize(new java.awt.Dimension(54, 34));
@@ -277,9 +283,10 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnObjectEdit.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnObjectEdit.setFont(new java.awt.Font("Dialog", 1, 10));
         btnObjectEdit.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/edit.png")); // NOI18N
         btnObjectEdit.setToolTipText("Edit Object");
+        btnObjectEdit.setEnabled(false);
         btnObjectEdit.setMaximumSize(new java.awt.Dimension(54, 34));
         btnObjectEdit.setMinimumSize(new java.awt.Dimension(54, 34));
         btnObjectEdit.setPreferredSize(new java.awt.Dimension(54, 34));
@@ -289,9 +296,10 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnObjectDestroy.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnObjectDestroy.setFont(new java.awt.Font("Dialog", 1, 10));
         btnObjectDestroy.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete.png")); // NOI18N
         btnObjectDestroy.setToolTipText("Destroy Object");
+        btnObjectDestroy.setEnabled(false);
         btnObjectDestroy.setMaximumSize(new java.awt.Dimension(54, 34));
         btnObjectDestroy.setMinimumSize(new java.awt.Dimension(54, 34));
         btnObjectDestroy.addActionListener(new java.awt.event.ActionListener() {
@@ -511,8 +519,14 @@ public class MonguitoView extends javax.swing.JFrame {
         try {
             monguitoController.connectTo(connection);
             monguitoController.refreshDataBases();
+
+            buttons(true, false, false, false, false, false, false, false, false);
+
         } catch (Exception e) {
+
             monguitoController.resetRequest();
+            buttons(false, false, false, false, false, false, false, false, false);
+
             JOptionPane.showMessageDialog(this, "Error to connect " + connection.getName() + ".",
                     "Connection Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -552,16 +566,14 @@ public class MonguitoView extends javax.swing.JFrame {
 
         monguitoController.refreshCollections((String) lstDataBases.getSelectedValue());
         refreshCollections();
-        btnDbDestroy.setEnabled(true);
-        btnCollectionNew.setEnabled(true);
-        btnCollectionTruncate.setEnabled(true);
+
+        buttons(true, true, true, false, false, false, false, false, false);
 
     }//GEN-LAST:event_lstDataBasesValueChanged
 
     private void lstCollectionsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstCollectionsValueChanged
 
-        btnFind.setEnabled(true);
-        btnCollectionDestroy.setEnabled(true);
+        buttons(true, true, true, true, true, true, false, false, true);
 
     }//GEN-LAST:event_lstCollectionsValueChanged
 
@@ -573,6 +585,7 @@ public class MonguitoView extends javax.swing.JFrame {
                 Integer.parseInt((String) cmbSkip.getSelectedItem()));
         refreshObjectsFound();
         refreshSkip();
+        buttons(true, true, true, true, true, true, false, false, true);
 
     }//GEN-LAST:event_btnFindActionPerformed
 
@@ -668,6 +681,7 @@ public class MonguitoView extends javax.swing.JFrame {
                     monguitoController.getListSkip().size() - 1);
 
             refreshObjectsFound();
+            buttons(true, true, true, true, true, true, false, false, true);
         }
 
     }//GEN-LAST:event_btnObjectDestroyActionPerformed
@@ -683,8 +697,15 @@ public class MonguitoView extends javax.swing.JFrame {
                 Integer.parseInt((String) cmbSkip.getSelectedItem()));
 
         refreshObjectsFound();
+        buttons(true, true, true, true, true, true, false, false, true);
 
     }//GEN-LAST:event_btnObjectEditActionPerformed
+
+    private void lstObjectsFoundValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstObjectsFoundValueChanged
+
+        buttons(true, true, true, true, true, true, true, true, true);
+
+    }//GEN-LAST:event_lstObjectsFoundValueChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCollectionDestroy;
     private javax.swing.JButton btnCollectionNew;
@@ -751,7 +772,6 @@ public class MonguitoView extends javax.swing.JFrame {
 
     private void refreshDataBases() {
         lstDataBases.setListData(monguitoController.getDataBases().toArray());
-        btnDbNew.setEnabled(true);
         refreshAllways();
     }
 
@@ -778,5 +798,20 @@ public class MonguitoView extends javax.swing.JFrame {
         if (monguitoController.getCalculatedSkip() >= monguitoController.getSelectedSkip()) {
             cmbSkip.setSelectedIndex(monguitoController.getSelectedSkip());
         }
+    }
+
+    private void buttons(boolean dbNew, boolean dbDestroy, boolean collNew, boolean collTruncate,
+            boolean collDestroy, boolean objNew, boolean objEdit, boolean objDestroy, boolean find) {
+
+        btnDbNew.setEnabled(dbNew);
+        btnDbDestroy.setEnabled(dbDestroy);
+        btnCollectionNew.setEnabled(collNew);
+        btnCollectionTruncate.setEnabled(collTruncate);
+        btnCollectionDestroy.setEnabled(collDestroy);
+        btnObjectNew.setEnabled(objNew);
+        btnObjectEdit.setEnabled(objEdit);
+        btnObjectDestroy.setEnabled(objDestroy);
+        btnFind.setEnabled(find);
+
     }
 }

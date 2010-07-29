@@ -514,6 +514,9 @@
                   <Dimension value="null"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="lstObjectsFoundValueChanged"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -526,6 +529,7 @@
               <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/add.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="New Object"/>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[54, 34]"/>
             </Property>
@@ -549,6 +553,7 @@
               <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/edit.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Edit Object"/>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[54, 34]"/>
             </Property>
@@ -572,6 +577,7 @@
               <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Destroy Object"/>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[54, 34]"/>
             </Property>
