@@ -28,7 +28,7 @@ public class AddObjectView extends javax.swing.JDialog {
 
         textObject.setColumns(20);
         textObject.setRows(5);
-        textObject.setText("{\n   \"name\" : \"Some Name\",\n   \"age\" : 23,\n   \"country\" : \"Argentina\",\n   \"city\" : \"Mendoza\"\n}");
+        textObject.setText("{\n   \"title\" : \"Sample Json to Add\",\n   \"name\" : \"John Doe\",\n   \"age\" : 29,\n   \"country\" : \"Argentina\",\n   \"city\" : \"Mendoza\"\n}");
         jScrollPane1.setViewportView(textObject);
 
         btnSave.setText("Save");

@@ -360,7 +360,7 @@
               <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/search.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Find"/>
-            <Property name="toolTipText" type="java.lang.String" value="Find"/>
+            <Property name="toolTipText" type="java.lang.String" value="Find last skip"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -604,7 +604,11 @@
                 <StringItem index="5" value="1000"/>
               </StringArray>
             </Property>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbLimitActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -624,7 +628,11 @@
                 <StringItem index="0" value="0"/>
               </StringArray>
             </Property>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSkipActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>

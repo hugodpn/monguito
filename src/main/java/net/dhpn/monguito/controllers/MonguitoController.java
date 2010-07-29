@@ -83,6 +83,24 @@ public class MonguitoController {
         calculateSkip();
     }
 
+    public void findLastSkip(String collection, int limit) {
+
+        totalObjects = mongoController.getTotalObjects(collection);
+        setSelectedLimit(limit);
+        calculateSkip();
+
+        strObjectsFound = new ArrayList<String>();
+        collectionsCursor = mongoController.find(collection, limit, Integer.parseInt(listSkip.get(listSkip.size() - 1)));
+
+        for (DBObject obj : collectionsCursor) {
+            strObjectsFound.add(obj.toString());
+        }
+
+        setSelectedLimit(limit);
+        setSelectedSkip(Integer.parseInt(listSkip.get(listSkip.size() - 1)));
+        calculateSkip();
+    }
+
     public int getCountObjectsFound() {
         return strObjectsFound.size();
     }
@@ -91,7 +109,7 @@ public class MonguitoController {
         return totalObjects;
     }
 
-    private void calculateSkip() {
+    public void calculateSkip() {
 
         setListSkip(new ArrayList<String>());
         getListSkip().add("0");

@@ -160,7 +160,7 @@ public class MonguitoView extends javax.swing.JFrame {
         btnFind.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         btnFind.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/search.png")); // NOI18N
         btnFind.setText("Find");
-        btnFind.setToolTipText("Find");
+        btnFind.setToolTipText("Find last skip");
         btnFind.setEnabled(false);
         btnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,7 +283,7 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnObjectEdit.setFont(new java.awt.Font("Dialog", 1, 10));
+        btnObjectEdit.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         btnObjectEdit.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/edit.png")); // NOI18N
         btnObjectEdit.setToolTipText("Edit Object");
         btnObjectEdit.setEnabled(false);
@@ -296,7 +296,7 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnObjectDestroy.setFont(new java.awt.Font("Dialog", 1, 10));
+        btnObjectDestroy.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         btnObjectDestroy.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete.png")); // NOI18N
         btnObjectDestroy.setToolTipText("Destroy Object");
         btnObjectDestroy.setEnabled(false);
@@ -308,14 +308,26 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        cmbLimit.setFont(new java.awt.Font("Dialog", 1, 10));
+        cmbLimit.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         cmbLimit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15", "30", "60", "100", "200", "1000" }));
+        cmbLimit.setEnabled(false);
+        cmbLimit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbLimitActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 10));
         jLabel4.setText("Limit:");
 
-        cmbSkip.setFont(new java.awt.Font("Dialog", 1, 10));
+        cmbSkip.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         cmbSkip.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0" }));
+        cmbSkip.setEnabled(false);
+        cmbSkip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSkipActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 10));
         jLabel5.setText("Skip:");
@@ -520,12 +532,12 @@ public class MonguitoView extends javax.swing.JFrame {
             monguitoController.connectTo(connection);
             monguitoController.refreshDataBases();
 
-            buttons(true, false, false, false, false, false, false, false, false);
+            buttons(true, false, false, false, false, false, false, false, false, false, false);
 
         } catch (Exception e) {
 
             monguitoController.resetRequest();
-            buttons(false, false, false, false, false, false, false, false, false);
+            buttons(false, false, false, false, false, false, false, false, false, false, false);
 
             JOptionPane.showMessageDialog(this, "Error to connect " + connection.getName() + ".",
                     "Connection Error", JOptionPane.ERROR_MESSAGE);
@@ -567,25 +579,29 @@ public class MonguitoView extends javax.swing.JFrame {
         monguitoController.refreshCollections((String) lstDataBases.getSelectedValue());
         refreshCollections();
 
-        buttons(true, true, true, false, false, false, false, false, false);
+        buttons(true, true, true, false, false, false, false, false, false, false, false);
 
     }//GEN-LAST:event_lstDataBasesValueChanged
 
     private void lstCollectionsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstCollectionsValueChanged
 
-        buttons(true, true, true, true, true, true, false, false, true);
+        buttons(true, true, true, true, true, true, false, false, true, true, true);
 
     }//GEN-LAST:event_lstCollectionsValueChanged
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
 
-        monguitoController.find((String) lstCollections.getSelectedValue(),
-                Integer.parseInt((String) cmbLimit.getSelectedItem()),
-                Integer.parseInt((String) cmbSkip.getSelectedItem()));
+//        monguitoController.find((String) lstCollections.getSelectedValue(),
+//                Integer.parseInt((String) cmbLimit.getSelectedItem()),
+//                Integer.parseInt((String) cmbSkip.getSelectedItem()));
+
+        monguitoController.findLastSkip((String) lstCollections.getSelectedValue(),
+                Integer.parseInt((String) cmbLimit.getSelectedItem()));
+
         refreshObjectsFound();
         refreshSkip();
-        buttons(true, true, true, true, true, true, false, false, true);
+        buttons(true, true, true, true, true, true, false, false, true, true, true);
 
     }//GEN-LAST:event_btnFindActionPerformed
 
@@ -657,11 +673,11 @@ public class MonguitoView extends javax.swing.JFrame {
 
         refreshSkip();
 
-        monguitoController.find((String) lstCollections.getSelectedValue(),
-                Integer.parseInt((String) cmbLimit.getSelectedItem()),
-                monguitoController.getListSkip().size() - 1);
+        monguitoController.findLastSkip((String) lstCollections.getSelectedValue(),
+                Integer.parseInt((String) cmbLimit.getSelectedItem()));
 
         refreshObjectsFound();
+        refreshSkip();
     }//GEN-LAST:event_btnObjectNewActionPerformed
 
     private void btnObjectDestroyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObjectDestroyActionPerformed
@@ -676,12 +692,12 @@ public class MonguitoView extends javax.swing.JFrame {
 
             refreshSkip();
 
-            monguitoController.find((String) lstCollections.getSelectedValue(),
-                    Integer.parseInt((String) cmbLimit.getSelectedItem()),
-                    monguitoController.getListSkip().size() - 1);
+            monguitoController.findLastSkip((String) lstCollections.getSelectedValue(),
+                    Integer.parseInt((String) cmbLimit.getSelectedItem()));
 
             refreshObjectsFound();
-            buttons(true, true, true, true, true, true, false, false, true);
+            refreshSkip();
+            buttons(true, true, true, true, true, true, false, false, true, true, true);
         }
 
     }//GEN-LAST:event_btnObjectDestroyActionPerformed
@@ -697,15 +713,35 @@ public class MonguitoView extends javax.swing.JFrame {
                 Integer.parseInt((String) cmbSkip.getSelectedItem()));
 
         refreshObjectsFound();
-        buttons(true, true, true, true, true, true, false, false, true);
+        buttons(true, true, true, true, true, true, false, false, true, true, true);
 
     }//GEN-LAST:event_btnObjectEditActionPerformed
 
     private void lstObjectsFoundValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstObjectsFoundValueChanged
 
-        buttons(true, true, true, true, true, true, true, true, true);
+        buttons(true, true, true, true, true, true, true, true, true, true, true);
 
     }//GEN-LAST:event_lstObjectsFoundValueChanged
+
+    private void cmbSkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSkipActionPerformed
+
+        monguitoController.find((String) lstCollections.getSelectedValue(),
+                Integer.parseInt((String) cmbLimit.getSelectedItem()),
+                Integer.parseInt((String) cmbSkip.getSelectedItem()));
+        refreshObjectsFound();
+
+    }//GEN-LAST:event_cmbSkipActionPerformed
+
+    private void cmbLimitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbLimitActionPerformed
+
+
+        int limit = Integer.parseInt((String) cmbLimit.getSelectedItem());
+        monguitoController.setSelectedLimit(limit);
+        monguitoController.calculateSkip();
+        refreshSkip();
+        
+    }//GEN-LAST:event_cmbLimitActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCollectionDestroy;
     private javax.swing.JButton btnCollectionNew;
@@ -801,7 +837,8 @@ public class MonguitoView extends javax.swing.JFrame {
     }
 
     private void buttons(boolean dbNew, boolean dbDestroy, boolean collNew, boolean collTruncate,
-            boolean collDestroy, boolean objNew, boolean objEdit, boolean objDestroy, boolean find) {
+            boolean collDestroy, boolean objNew, boolean objEdit, boolean objDestroy, boolean find,
+            boolean limit, boolean skip) {
 
         btnDbNew.setEnabled(dbNew);
         btnDbDestroy.setEnabled(dbDestroy);
@@ -812,6 +849,8 @@ public class MonguitoView extends javax.swing.JFrame {
         btnObjectEdit.setEnabled(objEdit);
         btnObjectDestroy.setEnabled(objDestroy);
         btnFind.setEnabled(find);
+        cmbLimit.setEnabled(limit);
+        cmbSkip.setEnabled(skip);
 
     }
 }
