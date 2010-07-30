@@ -207,5 +207,17 @@ public class MonguitoController {
         DBObject json = (DBObject) JSON.parse(strJson);
         mongoController.updateObject(json);
     }
+
+    public DBObject getObject(String strObject) {
+        return (DBObject) JSON.parse(strObject);
+    }
+
+    public String showValue(DBObject object, String key) {
+        try {
+            return object.get(key).toString();
+        } catch (Exception e) {
+            return "";
+        }
+    }
     
 }
