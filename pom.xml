@@ -41,7 +41,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.vvcode.monguito.App</mainClass>
+                            <mainClass>net.dhpn.monguito.App</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
                         </manifest>
@@ -82,7 +82,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.vvcode.monguito.App</mainClass>
+                            <mainClass>net.dhpn.monguito.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
