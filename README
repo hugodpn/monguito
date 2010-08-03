@@ -1,6 +1,6 @@
 GNU MongoDb GUI Tool.
 
-Alpha version 0.1
+Beta version 0.1
 -------------------
 
 - Show data bases
@@ -21,6 +21,7 @@ Alpha version 0.1
 - Show selected elements
 - Filter:
     > Element by String
+
 
 
 Author: Hugo Pacini
