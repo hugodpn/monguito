@@ -73,7 +73,7 @@ public class ConnectionsView extends javax.swing.JDialog {
         txtName.setEnabled(false);
 
         btnSave.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        btnSave.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/accept.png")); // NOI18N
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/accept.png"))); // NOI18N
         btnSave.setToolTipText("Save");
         btnSave.setEnabled(false);
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class ConnectionsView extends javax.swing.JDialog {
         });
 
         btnCancel.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        btnCancel.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/block.png")); // NOI18N
+        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/block.png"))); // NOI18N
         btnCancel.setToolTipText("Cancel");
         btnCancel.setEnabled(false);
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +138,7 @@ public class ConnectionsView extends javax.swing.JDialog {
         );
 
         btnNewConnection.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        btnNewConnection.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/add.png")); // NOI18N
+        btnNewConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/add.png"))); // NOI18N
         btnNewConnection.setToolTipText("Add Connection");
         btnNewConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +147,7 @@ public class ConnectionsView extends javax.swing.JDialog {
         });
 
         btnRemoveConnection.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        btnRemoveConnection.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete.png")); // NOI18N
+        btnRemoveConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/delete.png"))); // NOI18N
         btnRemoveConnection.setEnabled(false);
         btnRemoveConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

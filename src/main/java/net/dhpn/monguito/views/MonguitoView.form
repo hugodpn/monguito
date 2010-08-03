@@ -165,7 +165,10 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnFind" min="-2" pref="85" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnFind" min="-2" pref="85" max="-2" attributes="0"/>
+                      <Component id="chkFilter" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -180,7 +183,11 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnFind" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnFind" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="chkFilter" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jScrollPane2" max="32767" attributes="1"/>
@@ -282,7 +289,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/add.png"/>
+              <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/add.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="New Data Base"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -297,7 +304,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete.png"/>
+              <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/delete.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Destroy Data Base"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -312,7 +319,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/add.png"/>
+              <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/add.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="New Collection"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -327,7 +334,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete_page.png"/>
+              <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/delete_page.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Truncate Collection - (Remove and Create)"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -342,7 +349,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete.png"/>
+              <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/delete.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Destroy Collection"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -357,7 +364,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/search.png"/>
+              <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/search.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Find"/>
             <Property name="toolTipText" type="java.lang.String" value="Find last skip"/>
@@ -366,6 +373,14 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFindActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="chkFilter">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="10" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Filter"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -450,7 +465,7 @@
             <Component class="javax.swing.JButton" name="btnClear">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/promotion.png"/>
+                  <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/promotion.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Clear"/>
                 <Property name="toolTipText" type="java.lang.String" value="Clear Information"/>
@@ -458,6 +473,85 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClearActionPerformed"/>
               </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Filter">
+                <Property name="tabTitle" type="java.lang.String" value="Filter"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnClearFilter" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="511" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane5" alignment="0" pref="622" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jScrollPane5" pref="156" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnClearFilter" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="tableFilter">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="2" rowCount="4">
+                        <Column editable="true" title="Element" type="java.lang.String"/>
+                        <Column editable="true" title="Value" type="java.lang.String"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="250" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnClearFilter">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/promotion.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Clear"/>
+                <Property name="toolTipText" type="java.lang.String" value="Clear Filter"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -560,7 +654,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/add.png"/>
+              <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/add.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="New Object"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -584,7 +678,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/edit.png"/>
+              <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/edit.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Edit Object"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -608,7 +702,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete.png"/>
+              <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/delete.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Destroy Object"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -784,7 +878,7 @@
               <Font name="Dialog" size="10" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/refresh.png"/>
+              <Image iconType="3" name="/net/dhpn/monguito/icons/24x24/refresh.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Connect"/>
             <Property name="focusable" type="boolean" value="false"/>

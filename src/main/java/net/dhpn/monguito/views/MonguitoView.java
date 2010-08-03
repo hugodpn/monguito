@@ -20,6 +20,7 @@ public class MonguitoView extends javax.swing.JFrame {
         configurationUtil = new ConfigurationUtil();
         monguitoController = new MonguitoController();
         refreshWindow();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -39,11 +40,16 @@ public class MonguitoView extends javax.swing.JFrame {
         btnCollectionTruncate = new javax.swing.JButton();
         btnCollectionDestroy = new javax.swing.JButton();
         btnFind = new javax.swing.JButton();
+        chkFilter = new javax.swing.JCheckBox();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tableInfo = new javax.swing.JTable();
         btnClear = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tableFilter = new javax.swing.JTable();
+        btnClearFilter = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         lstObjectsFound = new javax.swing.JList();
@@ -110,8 +116,8 @@ public class MonguitoView extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 10));
         jLabel3.setText("Collections:");
 
-        btnDbNew.setFont(new java.awt.Font("Dialog", 1, 10));
-        btnDbNew.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/add.png")); // NOI18N
+        btnDbNew.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnDbNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/add.png"))); // NOI18N
         btnDbNew.setToolTipText("New Data Base");
         btnDbNew.setEnabled(false);
         btnDbNew.addActionListener(new java.awt.event.ActionListener() {
@@ -120,8 +126,8 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnDbDestroy.setFont(new java.awt.Font("Dialog", 1, 10));
-        btnDbDestroy.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete.png")); // NOI18N
+        btnDbDestroy.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnDbDestroy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/delete.png"))); // NOI18N
         btnDbDestroy.setToolTipText("Destroy Data Base");
         btnDbDestroy.setEnabled(false);
         btnDbDestroy.addActionListener(new java.awt.event.ActionListener() {
@@ -130,8 +136,8 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnCollectionNew.setFont(new java.awt.Font("Dialog", 1, 10));
-        btnCollectionNew.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/add.png")); // NOI18N
+        btnCollectionNew.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnCollectionNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/add.png"))); // NOI18N
         btnCollectionNew.setToolTipText("New Collection");
         btnCollectionNew.setEnabled(false);
         btnCollectionNew.addActionListener(new java.awt.event.ActionListener() {
@@ -140,8 +146,8 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnCollectionTruncate.setFont(new java.awt.Font("Dialog", 1, 10));
-        btnCollectionTruncate.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete_page.png")); // NOI18N
+        btnCollectionTruncate.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnCollectionTruncate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/delete_page.png"))); // NOI18N
         btnCollectionTruncate.setToolTipText("Truncate Collection - (Remove and Create)");
         btnCollectionTruncate.setEnabled(false);
         btnCollectionTruncate.addActionListener(new java.awt.event.ActionListener() {
@@ -150,8 +156,8 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnCollectionDestroy.setFont(new java.awt.Font("Dialog", 1, 10));
-        btnCollectionDestroy.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete.png")); // NOI18N
+        btnCollectionDestroy.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnCollectionDestroy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/delete.png"))); // NOI18N
         btnCollectionDestroy.setToolTipText("Destroy Collection");
         btnCollectionDestroy.setEnabled(false);
         btnCollectionDestroy.addActionListener(new java.awt.event.ActionListener() {
@@ -160,8 +166,8 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnFind.setFont(new java.awt.Font("Dialog", 1, 10));
-        btnFind.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/search.png")); // NOI18N
+        btnFind.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnFind.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/search.png"))); // NOI18N
         btnFind.setText("Find");
         btnFind.setToolTipText("Find last skip");
         btnFind.setEnabled(false);
@@ -170,6 +176,9 @@ public class MonguitoView extends javax.swing.JFrame {
                 btnFindActionPerformed(evt);
             }
         });
+
+        chkFilter.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        chkFilter.setText("Filter");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -198,7 +207,9 @@ public class MonguitoView extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                             .addComponent(jLabel3))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkFilter))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -210,7 +221,10 @@ public class MonguitoView extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnFind)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnFind)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chkFilter))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane2)
@@ -257,7 +271,7 @@ public class MonguitoView extends javax.swing.JFrame {
         tableInfo.getColumnModel().getColumn(1).setResizable(false);
         tableInfo.getColumnModel().getColumn(1).setPreferredWidth(250);
 
-        btnClear.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/promotion.png")); // NOI18N
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/promotion.png"))); // NOI18N
         btnClear.setText("Clear");
         btnClear.setToolTipText("Clear Information");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -287,6 +301,53 @@ public class MonguitoView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Information", jPanel3);
 
+        tableFilter.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Element", "Value"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tableFilter);
+        tableFilter.getColumnModel().getColumn(1).setPreferredWidth(250);
+
+        btnClearFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/promotion.png"))); // NOI18N
+        btnClearFilter.setText("Clear");
+        btnClearFilter.setToolTipText("Clear Filter");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnClearFilter)
+                .addContainerGap(511, Short.MAX_VALUE))
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnClearFilter)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Filter", jPanel2);
+
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lstObjectsFound.setFont(new java.awt.Font("Dialog", 0, 12));
@@ -308,8 +369,8 @@ public class MonguitoView extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(lstObjectsFound);
 
-        btnObjectNew.setFont(new java.awt.Font("Dialog", 1, 10));
-        btnObjectNew.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/add.png")); // NOI18N
+        btnObjectNew.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnObjectNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/add.png"))); // NOI18N
         btnObjectNew.setToolTipText("New Object");
         btnObjectNew.setEnabled(false);
         btnObjectNew.setMaximumSize(new java.awt.Dimension(54, 34));
@@ -321,8 +382,8 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnObjectEdit.setFont(new java.awt.Font("Dialog", 1, 10));
-        btnObjectEdit.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/edit.png")); // NOI18N
+        btnObjectEdit.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnObjectEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/edit.png"))); // NOI18N
         btnObjectEdit.setToolTipText("Edit Object");
         btnObjectEdit.setEnabled(false);
         btnObjectEdit.setMaximumSize(new java.awt.Dimension(54, 34));
@@ -334,8 +395,8 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnObjectDestroy.setFont(new java.awt.Font("Dialog", 1, 10));
-        btnObjectDestroy.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/delete.png")); // NOI18N
+        btnObjectDestroy.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnObjectDestroy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/delete.png"))); // NOI18N
         btnObjectDestroy.setToolTipText("Destroy Object");
         btnObjectDestroy.setEnabled(false);
         btnObjectDestroy.setMaximumSize(new java.awt.Dimension(54, 34));
@@ -446,8 +507,8 @@ public class MonguitoView extends javax.swing.JFrame {
         jPanel7.add(cmbConnections);
         cmbConnections.setBounds(90, 2, 210, 30);
 
-        btnConnect.setFont(new java.awt.Font("Dialog", 1, 10));
-        btnConnect.setIcon(new javax.swing.ImageIcon("/home/hugo/dev/j2se/monguito/src/main/java/net/dhpn/monguito/icons/24x24/refresh.png")); // NOI18N
+        btnConnect.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnConnect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/refresh.png"))); // NOI18N
         btnConnect.setToolTipText("Connect");
         btnConnect.setFocusable(false);
         btnConnect.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -629,11 +690,6 @@ public class MonguitoView extends javax.swing.JFrame {
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
-
-//        monguitoController.find((String) lstCollections.getSelectedValue(),
-//                Integer.parseInt((String) cmbLimit.getSelectedItem()),
-//                Integer.parseInt((String) cmbSkip.getSelectedItem()));
-
         monguitoController.findLastSkip((String) lstCollections.getSelectedValue(),
                 Integer.parseInt((String) cmbLimit.getSelectedItem()));
 
@@ -793,6 +849,7 @@ public class MonguitoView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnClearFilter;
     private javax.swing.JButton btnCollectionDestroy;
     private javax.swing.JButton btnCollectionNew;
     private javax.swing.JButton btnCollectionTruncate;
@@ -803,6 +860,7 @@ public class MonguitoView extends javax.swing.JFrame {
     private javax.swing.JButton btnObjectDestroy;
     private javax.swing.JButton btnObjectEdit;
     private javax.swing.JButton btnObjectNew;
+    private javax.swing.JCheckBox chkFilter;
     private javax.swing.JComboBox cmbConnections;
     private javax.swing.JComboBox cmbLimit;
     private javax.swing.JComboBox cmbSkip;
@@ -812,6 +870,7 @@ public class MonguitoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -822,6 +881,7 @@ public class MonguitoView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar5;
@@ -837,6 +897,7 @@ public class MonguitoView extends javax.swing.JFrame {
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenu menuHelp;
     private javax.swing.JMenuItem menuPreferences;
+    private javax.swing.JTable tableFilter;
     private javax.swing.JTable tableInfo;
     // End of variables declaration//GEN-END:variables
 
