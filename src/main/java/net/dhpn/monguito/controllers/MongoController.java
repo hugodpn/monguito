@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import net.dhpn.monguito.entities.Connection;
+import net.dhpn.monguito.entities.Filter;
 
 public class MongoController {
 
@@ -43,9 +44,20 @@ public class MongoController {
         return cursor;
     }
 
-    public DBCursor find(String collectionName, int limit, int skip) {
+    public DBCursor find(String collectionName, int limit, int skip, List<Filter> filters) {
         collection = db.getCollection(collectionName);
-        cursor = collection.find().skip(skip * limit).limit(limit);
+        if (filters == null) {
+            cursor = collection.find().skip(skip * limit).limit(limit);
+        } else {
+
+            BasicDBObject query = new BasicDBObject();
+            for (Filter f : filters) {
+                query.put(f.getKey(), f.getValue());
+            }
+
+            cursor = collection.find(query).skip(skip * limit).limit(limit);
+
+        }
         return cursor;
     }
 
@@ -68,7 +80,6 @@ public class MongoController {
         mongo.dropDatabase(dataBaseName);
     }
 
-
     public void saveObject(DBObject object) {
         collection.insert(object);
     }
@@ -77,14 +88,11 @@ public class MongoController {
         collection.remove(object);
     }
 
-
     public void updateObject(DBObject object) {
         collection.save(object);
     }
 
     public int getTotalObjects(String collectionName) {
-       return find(collectionName).count();
+        return find(collectionName).count();
     }
-
-
 }

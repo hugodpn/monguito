@@ -1,13 +1,13 @@
 GNU MongoDb GUI Tool.
 
-Alpha version 0.0.4
+Alpha version 0.1
 -------------------
 
-- Show DBs.
-- Show collection.
+- Show data bases
+- Show collection
 - Find: 
     > db.<collection>.find().skip(xx).limit(yy) from a simple button.
-    > Simple paginator
+    > Simple paginate
 - Create collection
 - Remove collection
 - Truncate (remove and create) collection
@@ -16,6 +16,12 @@ Alpha version 0.0.4
 - Create DB
 - Destroy DB
 - Edit selected field
+- Configurate multiples connections.
+- Set look and feel
+- Show selected elements
+- Filter:
+    > Element by String
+
 
 Author: Hugo Pacini
 hpacini@dhpn.com.ar

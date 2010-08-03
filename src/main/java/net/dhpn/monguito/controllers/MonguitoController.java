@@ -7,6 +7,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import net.dhpn.monguito.entities.Connection;
+import net.dhpn.monguito.entities.Filter;
 
 public class MonguitoController {
 
@@ -68,12 +69,12 @@ public class MonguitoController {
         }
     }
 
-    public void find(String collection, int limit, int skip) {
+    public void find(String collection, int limit, int skip, List<Filter> filters) {
 
         totalObjects = mongoController.getTotalObjects(collection);
 
         strObjectsFound = new ArrayList<String>();
-        collectionsCursor = mongoController.find(collection, limit, skip);
+        collectionsCursor = mongoController.find(collection, limit, skip, filters);
         for (DBObject obj : collectionsCursor) {
             strObjectsFound.add(obj.toString());
         }
@@ -83,14 +84,15 @@ public class MonguitoController {
         calculateSkip();
     }
 
-    public void findLastSkip(String collection, int limit) {
+    public void findLastSkip(String collection, int limit, List<Filter> filters) {
 
         totalObjects = mongoController.getTotalObjects(collection);
         setSelectedLimit(limit);
         calculateSkip();
 
         strObjectsFound = new ArrayList<String>();
-        collectionsCursor = mongoController.find(collection, limit, Integer.parseInt(listSkip.get(listSkip.size() - 1)));
+        collectionsCursor = mongoController.find(collection, limit, 
+                Integer.parseInt(listSkip.get(listSkip.size() - 1)), filters);
 
         for (DBObject obj : collectionsCursor) {
             strObjectsFound.add(obj.toString());
@@ -219,5 +221,5 @@ public class MonguitoController {
             return "";
         }
     }
-    
+
 }

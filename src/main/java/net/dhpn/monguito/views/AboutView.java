@@ -24,7 +24,7 @@ public class AboutView extends javax.swing.JDialog {
 
         textAbout.setColumns(20);
         textAbout.setRows(5);
-        textAbout.setText("\nFree MongoDB Tool.\n@ 2010\n\nCreated by Hugo Pacini\nhpacini@dhpn.com.ar\n\nColaborators:\n\nVersion 0.1");
+        textAbout.setText("\nFree MongoDB Tool.\n@ 2010\n\nCreated by Hugo Pacini\nhpacini@dhpn.com.ar\n\nColaborators:\n\nVersion 0.1 (BETA)");
         jScrollPane1.setViewportView(textAbout);
 
         btnClose.setText("Close");
@@ -43,7 +43,7 @@ public class AboutView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnClose, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                     .addComponent(lblTitle))
                 .addContainerGap())
         );
@@ -53,7 +53,7 @@ public class AboutView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnClose)
                 .addContainerGap())

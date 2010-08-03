@@ -31,7 +31,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnClose" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" alignment="0" pref="270" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" pref="272" max="32767" attributes="0"/>
                   <Component id="lblTitle" alignment="0" min="-2" max="-2" attributes="1"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -44,7 +44,7 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="235" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="240" max="32767" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnClose" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -69,7 +69,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="&#xa;Free MongoDB Tool.&#xa;@ 2010&#xa;&#xa;Created by Hugo Pacini&#xa;hpacini@dhpn.com.ar&#xa;&#xa;Colaborators:&#xa;&#xa;Version 0.1"/>
+            <Property name="text" type="java.lang.String" value="&#xa;Free MongoDB Tool.&#xa;@ 2010&#xa;&#xa;Created by Hugo Pacini&#xa;hpacini@dhpn.com.ar&#xa;&#xa;Colaborators:&#xa;&#xa;Version 0.1 (BETA)"/>
           </Properties>
         </Component>
       </SubComponents>
