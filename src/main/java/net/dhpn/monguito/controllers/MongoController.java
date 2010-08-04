@@ -55,7 +55,7 @@ public class MongoController {
                 query.put(f.getKey(), f.getValue());
             }
 
-            cursor = collection.find(query).skip(skip * limit).limit(limit);
+            cursor = collection.find(query);
 
         }
         return cursor;
