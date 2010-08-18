@@ -1,6 +1,8 @@
 package net.dhpn.monguito.views;
 
 import com.mongodb.DBObject;
+import java.awt.event.InputEvent;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -30,6 +32,8 @@ public class MonguitoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popMenuObjectFound = new javax.swing.JPopupMenu();
+        popMenuDelete = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstDataBases = new javax.swing.JList();
@@ -45,14 +49,14 @@ public class MonguitoView extends javax.swing.JFrame {
         btnFind = new javax.swing.JButton();
         chkFilter = new javax.swing.JCheckBox();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tableInfo = new javax.swing.JTable();
-        btnClear = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tableFilter = new javax.swing.JTable();
         btnClearFilter = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableInfo = new javax.swing.JTable();
+        btnClear = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         lstObjectsFound = new javax.swing.JList();
@@ -81,6 +85,16 @@ public class MonguitoView extends javax.swing.JFrame {
         menuPreferences = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
         menuAbout = new javax.swing.JMenuItem();
+
+        popMenuObjectFound.setInheritsPopupMenu(true);
+
+        popMenuDelete.setText("Destroy");
+        popMenuDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popMenuDeleteActionPerformed(evt);
+            }
+        });
+        popMenuObjectFound.add(popMenuDelete);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Monguito - Mongo GUI Tool (BETA)");
@@ -159,7 +173,7 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnCollectionDestroy.setFont(new java.awt.Font("Dialog", 1, 10));
+        btnCollectionDestroy.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         btnCollectionDestroy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/delete.png"))); // NOI18N
         btnCollectionDestroy.setToolTipText("Destroy Collection");
         btnCollectionDestroy.setEnabled(false);
@@ -246,6 +260,53 @@ public class MonguitoView extends javax.swing.JFrame {
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedPane1.setFont(new java.awt.Font("Dialog", 1, 10));
 
+        tableFilter.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Element", "Value"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tableFilter);
+        tableFilter.getColumnModel().getColumn(1).setPreferredWidth(250);
+
+        btnClearFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/promotion.png"))); // NOI18N
+        btnClearFilter.setText("Clear");
+        btnClearFilter.setToolTipText("Clear Filter");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnClearFilter)
+                .addContainerGap(511, Short.MAX_VALUE))
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnClearFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6))
+        );
+
+        jTabbedPane1.addTab("Filter", jPanel2);
+
         tableInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -295,65 +356,18 @@ public class MonguitoView extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnClear)
-                .addContainerGap())
+                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6))
         );
 
         jTabbedPane1.addTab("Information", jPanel3);
 
-        tableFilter.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Element", "Value"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane5.setViewportView(tableFilter);
-        tableFilter.getColumnModel().getColumn(1).setPreferredWidth(250);
-
-        btnClearFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/promotion.png"))); // NOI18N
-        btnClearFilter.setText("Clear");
-        btnClearFilter.setToolTipText("Clear Filter");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnClearFilter)
-                .addContainerGap(511, Short.MAX_VALUE))
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnClearFilter)
-                .addContainerGap())
-        );
-
-        jTabbedPane1.addTab("Filter", jPanel2);
-
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lstObjectsFound.setFont(new java.awt.Font("Dialog", 0, 12));
+        lstObjectsFound.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lstObjectsFound.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -508,7 +522,7 @@ public class MonguitoView extends javax.swing.JFrame {
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel8.setAlignmentX(0.1F);
         jPanel8.setAlignmentY(0.1F);
-        jPanel8.setLayout(new java.awt.GridLayout());
+        jPanel8.setLayout(new java.awt.GridLayout(1, 0));
 
         jSplitPane1.setDividerLocation(800);
 
@@ -785,23 +799,7 @@ public class MonguitoView extends javax.swing.JFrame {
 
     private void btnObjectDestroyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObjectDestroyActionPerformed
 
-        int answer = JOptionPane.showConfirmDialog(this, "Are you sure?",
-                "Destroy object", JOptionPane.YES_NO_OPTION);
-
-        if (answer == 0) {
-
-            String strJson = monguitoController.getObjectsFound().get(lstObjectsFound.getSelectedIndex());
-            monguitoController.destroyObject(strJson);
-
-            refreshSkip();
-
-            monguitoController.findLastSkip((String) lstCollections.getSelectedValue(),
-                    Integer.parseInt((String) cmbLimit.getSelectedItem()), getFilter());
-
-            refreshObjectsFound();
-            refreshSkip();
-            buttons(true, true, true, true, true, true, false, false, true, true, true);
-        }
+        deleteObjectFound();
 
     }//GEN-LAST:event_btnObjectDestroyActionPerformed
 
@@ -839,11 +837,20 @@ public class MonguitoView extends javax.swing.JFrame {
 
     private void lstObjectsFoundMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstObjectsFoundMouseClicked
 
+        popMenuObjectFound.setVisible(false);
+        
         if (monguitoController.getObjectsFound().size() > 0) {
-            if (evt.getClickCount() == 2) {
+            if (evt.getClickCount() == 2 && lstObjectsFound.getSelectedValue() != null) {
                 editObject();
             }
         }
+
+        if (evt.getButton() == MouseEvent.BUTTON3 && lstObjectsFound.getSelectedValue() != null) {
+            popMenuObjectFound.setLocation(evt.getXOnScreen(), evt.getYOnScreen());
+            popMenuDelete.setSelected(true);
+            popMenuObjectFound.setVisible(true);
+        }
+
 
     }//GEN-LAST:event_lstObjectsFoundMouseClicked
 
@@ -855,6 +862,14 @@ public class MonguitoView extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void popMenuDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popMenuDeleteActionPerformed
+
+        popMenuObjectFound.setVisible(false);
+        deleteObjectFound();
+
+    }//GEN-LAST:event_popMenuDeleteActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnClearFilter;
@@ -905,6 +920,8 @@ public class MonguitoView extends javax.swing.JFrame {
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenu menuHelp;
     private javax.swing.JMenuItem menuPreferences;
+    private javax.swing.JMenuItem popMenuDelete;
+    private javax.swing.JPopupMenu popMenuObjectFound;
     private javax.swing.JTable tableFilter;
     private javax.swing.JTable tableInfo;
     // End of variables declaration//GEN-END:variables
@@ -1027,5 +1044,25 @@ public class MonguitoView extends javax.swing.JFrame {
             return null;
         }
 
+    }
+
+    private void deleteObjectFound() {
+                int answer = JOptionPane.showConfirmDialog(this, "Are you sure?",
+                "Destroy object", JOptionPane.YES_NO_OPTION);
+
+        if (answer == 0) {
+
+            String strJson = monguitoController.getObjectsFound().get(lstObjectsFound.getSelectedIndex());
+            monguitoController.destroyObject(strJson);
+
+            refreshSkip();
+
+            monguitoController.findLastSkip((String) lstCollections.getSelectedValue(),
+                    Integer.parseInt((String) cmbLimit.getSelectedItem()), getFilter());
+
+            refreshObjectsFound();
+            refreshSkip();
+            buttons(true, true, true, true, true, true, false, false, true, true, true);
+        }
     }
 }
