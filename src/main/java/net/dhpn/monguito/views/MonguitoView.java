@@ -63,16 +63,16 @@ public class MonguitoView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         cmbSkip = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
-        jToolBar5 = new javax.swing.JToolBar();
-        jSplitPane2 = new javax.swing.JSplitPane();
-        jPanel5 = new javax.swing.JPanel();
-        lblMessage = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jProgressBar1 = new javax.swing.JProgressBar();
         jPanel7 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cmbConnections = new javax.swing.JComboBox();
         btnConnect = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel6 = new javax.swing.JPanel();
+        lblMessage = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jProgressBar1 = new javax.swing.JProgressBar();
         menuBar = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
         menuExit = new javax.swing.JMenuItem();
@@ -159,7 +159,7 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnCollectionDestroy.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnCollectionDestroy.setFont(new java.awt.Font("Dialog", 1, 10));
         btnCollectionDestroy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/delete.png"))); // NOI18N
         btnCollectionDestroy.setToolTipText("Destroy Collection");
         btnCollectionDestroy.setEnabled(false);
@@ -353,7 +353,7 @@ public class MonguitoView extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lstObjectsFound.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        lstObjectsFound.setFont(new java.awt.Font("Dialog", 0, 12));
         lstObjectsFound.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -459,7 +459,7 @@ public class MonguitoView extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -475,25 +475,6 @@ public class MonguitoView extends javax.swing.JFrame {
                             .addComponent(cmbSkip, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))))
                 .addContainerGap())
         );
-
-        jToolBar5.setFloatable(false);
-        jToolBar5.setRollover(true);
-
-        jSplitPane2.setDividerLocation(600);
-
-        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
-        lblMessage.setText("Messages here....");
-        jPanel5.add(lblMessage);
-
-        jSplitPane2.setLeftComponent(jPanel5);
-
-        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
-        jPanel6.add(jProgressBar1);
-
-        jSplitPane2.setRightComponent(jPanel6);
-
-        jToolBar5.add(jSplitPane2);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel7.setAlignmentX(0.2F);
@@ -523,6 +504,29 @@ public class MonguitoView extends javax.swing.JFrame {
         });
         jPanel7.add(btnConnect);
         btnConnect.setBounds(303, 2, 50, 30);
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel8.setAlignmentX(0.1F);
+        jPanel8.setAlignmentY(0.1F);
+        jPanel8.setLayout(new java.awt.GridLayout());
+
+        jSplitPane1.setDividerLocation(800);
+
+        jPanel6.setAlignmentX(0.1F);
+        jPanel6.setAlignmentY(0.1F);
+        jPanel6.setLayout(new java.awt.CardLayout());
+
+        lblMessage.setText("Messages here....");
+        jPanel6.add(lblMessage, "card2");
+
+        jSplitPane1.setLeftComponent(jPanel6);
+
+        jPanel5.setLayout(new java.awt.CardLayout());
+        jPanel5.add(jProgressBar1, "card2");
+
+        jSplitPane1.setRightComponent(jPanel5);
+
+        jPanel8.add(jSplitPane1);
 
         menuBar.setFont(new java.awt.Font("Dialog", 1, 10));
 
@@ -582,8 +586,8 @@ public class MonguitoView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jToolBar5, javax.swing.GroupLayout.DEFAULT_SIZE, 1173, Short.MAX_VALUE)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1173, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 1173, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -600,7 +604,7 @@ public class MonguitoView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToolBar5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -880,15 +884,15 @@ public class MonguitoView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JSplitPane jSplitPane2;
+    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JToolBar jToolBar5;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JList lstCollections;
     private javax.swing.JList lstDataBases;
@@ -940,7 +944,7 @@ public class MonguitoView extends javax.swing.JFrame {
 
     private void refreshAllways() {
         lblMessage.setText("Total: " + monguitoController.getCountTotalObjects()
-                + " - Total ojbects found: " + monguitoController.getCountObjectsFound());
+                + " - Total objects found: " + monguitoController.getCountObjectsFound());
     }
 
     private void refreshSkip() {
