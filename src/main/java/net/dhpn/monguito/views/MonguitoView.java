@@ -1,9 +1,9 @@
 package net.dhpn.monguito.views;
 
 import com.mongodb.DBObject;
-import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import net.dhpn.monguito.controllers.MonguitoController;
@@ -117,7 +117,7 @@ public class MonguitoView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 10));
         jLabel1.setText("DBs:");
 
-        lstCollections.setFont(new java.awt.Font("Dialog", 1, 10));
+        lstCollections.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lstCollections.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -173,7 +173,7 @@ public class MonguitoView extends javax.swing.JFrame {
             }
         });
 
-        btnCollectionDestroy.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnCollectionDestroy.setFont(new java.awt.Font("Dialog", 1, 10));
         btnCollectionDestroy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/dhpn/monguito/icons/24x24/delete.png"))); // NOI18N
         btnCollectionDestroy.setToolTipText("Destroy Collection");
         btnCollectionDestroy.setEnabled(false);
@@ -373,6 +373,7 @@ public class MonguitoView extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        lstObjectsFound.setToolTipText("null");
         lstObjectsFound.setMinimumSize(null);
         lstObjectsFound.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -811,8 +812,31 @@ public class MonguitoView extends javax.swing.JFrame {
 
     private void lstObjectsFoundValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstObjectsFoundValueChanged
 
-        showInformation(monguitoController.getObject((String) lstObjectsFound.getSelectedValue()));
-        buttons(true, true, true, true, true, true, true, true, true, true, true);
+        try {
+
+            String message = "";
+
+            showInformation(monguitoController.getObject((String) lstObjectsFound.getSelectedValue()));
+            buttons(true, true, true, true, true, true, true, true, true, true, true);
+
+            DBObject obj = monguitoController.getObject((String) lstObjectsFound.getSelectedValue());
+            String oid = obj.get("_id").toString();
+            
+            String toDate = oid.substring(0, 8);
+            Long lDate = Long.parseLong(toDate, 16);
+            message += "Timestamp: " + new Date(lDate * 1000) + "  -  ";
+
+            String toMachine = oid.substring(0,14);
+
+            Long lMachine = Long.parseLong(toMachine, 16);
+            message += "Machine: " + Long.toOctalString(lMachine);
+
+            lstObjectsFound.setToolTipText(message);
+
+
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
 
     }//GEN-LAST:event_lstObjectsFoundValueChanged
 
@@ -838,7 +862,7 @@ public class MonguitoView extends javax.swing.JFrame {
     private void lstObjectsFoundMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstObjectsFoundMouseClicked
 
         popMenuObjectFound.setVisible(false);
-        
+
         if (monguitoController.getObjectsFound().size() > 0) {
             if (evt.getClickCount() == 2 && lstObjectsFound.getSelectedValue() != null) {
                 editObject();
@@ -869,7 +893,6 @@ public class MonguitoView extends javax.swing.JFrame {
         deleteObjectFound();
 
     }//GEN-LAST:event_popMenuDeleteActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnClearFilter;
@@ -1047,7 +1070,7 @@ public class MonguitoView extends javax.swing.JFrame {
     }
 
     private void deleteObjectFound() {
-                int answer = JOptionPane.showConfirmDialog(this, "Are you sure?",
+        int answer = JOptionPane.showConfirmDialog(this, "Are you sure?",
                 "Destroy object", JOptionPane.YES_NO_OPTION);
 
         if (answer == 0) {
