@@ -1,0 +1,4 @@
+/target/
+.gitignore
+mongito_config.xml
+/bin/mongito_config.xml

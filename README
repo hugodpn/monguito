@@ -1,7 +1,27 @@
-GNU MongoDb GUI Tool.
+GNU MongoDb GUI Tool
+====================
+
+Pre-condition
+-------------
+
+You need get installed and configurated:
+
+ + JDK 1.6
+ + Apache Maven 2.2
+
+Installation (install + run)
+------------
+
+ > sh bin/setup.sh
+ > sh bin/run.sh
+
+or
+
+ > mvn clean install
+ > java -jar target/monguito-0.1.one-jar.jar
 
 Beta version 0.1.1
--------------------
+------------------
 
 - Show data bases
 - Show collection
@@ -23,7 +43,6 @@ Beta version 0.1.1
     > Element by String
 
 
-
-Author: Hugo Pacini
-hpacini@dhpn.com.ar
+ * Author: Hugo Pacini
+ * hugodpn@yahoo.com.ar
 
